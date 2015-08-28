@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>All Around the World</title>
+	<link rel="stylesheet" href="prev.css">
+	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+	<div id="container">
+		<h1>Choose your Destination!</h1>
+		<h2>Click "go to previous" to enlarge each photo. Click on each photo to eliminate until you have decided on your next destination</h2>
+		<div id="images">
+			<img class="img"src="greece.jpg" alt="Greece" style="width:200px; height:150px;"/>
+			<img class="img"src="dubai.jpg" alt="Dubai" style="width:200px; height:150px;"/> 
+			<img class="img"src="italy.jpg" alt="Italy"style="width:200px; height:150px;"/> 
+			<img class="img"src="borabora.jpg" alt="Bora Bora"style="width:200px; height:150px;"/> 
+			<img class="img"src="tokyo.jpg" alt="Tokyo"style="width:200px; height:150px;"/> 
+			<img class="img" id="start" src="thailand.jpeg" alt="Thailand" style="width:200px; height:150px;"/> 
+			<p><button id="button1">Go to prev</button></p>
+			<p><button id="button2">Display all photos</button></p>
+		</div>
+	</div>
+	<script>
+	$("#button1").mouseover(function(){
+			$(this).css("background-color", "yellow");
+		});
+		var $curr = $("#start");
+		$curr.css("width", "+=100");
+		$curr.css("height", "+=100");
+		$curr.css("border", "4px solid white");
+		$("#button1").click(function(){
+			$curr = $curr.prev();
+			$(".img").css("width", " ");
+			$(".img").css("height", " ");
+			$curr.css("width", "+=100");
+			$curr.css("height", "+=100");
+			$curr.css("border", "4px solid white");
+		$(".img").click(function(){
+			$(this).hide("slow");
+		
+		});
+		
+		$("#button2").click(function(){
+			$(".img").show("slow");
+		});
+		
+		
+		});
+	</script>
+</body>
+</html>
