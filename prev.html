@@ -10,6 +10,9 @@
 	<div id="container">
 		<h1>Choose your Destination!</h1>
 		<h2>Click "go to previous" to enlarge each photo. Click on each photo to eliminate until you have decided on your next destination</h2>
+	<div id="destinationinfo">
+			<h3>Choose from the ancient city of Mykonos, or the futuristic Dubai, the beautiful canals of Venice, <br> water-living at Bora Bora, city-life of Tokyo, or the naturalistic beauty of Thailand.</h3>
+	</div>
 		<div id="images">
 			<img class="img"src="greece.jpg" alt="Greece" style="width:200px; height:150px;"/>
 			<img class="img"src="dubai.jpg" alt="Dubai" style="width:200px; height:150px;"/> 
@@ -20,11 +23,24 @@
 			<p><button id="button1">Go to prev</button></p>
 			<p><button id="button2">Display all photos</button></p>
 		</div>
+		<p id="otherdest">List one other destination you wish to go to that is not pictured above: </p>
+	<input type="text">
 	</div>
 	<script>
-	$("#button1").mouseover(function(){
+	$("#button1").hover(function(){
 			$(this).css("background-color", "yellow");
+			 }, function(){
+        	$(this).css("background-color", "white");
 		});
+	$("h1").click(function(){
+		if($("#destinationinfo").is(":hidden")){
+			$("#destinationinfo").slideDown("slow");
+		}
+		else{
+			$("#destinationinfo").hide();
+		}
+	});
+
 		var $curr = $("#start");
 		$curr.css("width", "+=100");
 		$curr.css("height", "+=100");
@@ -45,8 +61,22 @@
 			$(".img").show("slow");
 		});
 		
-		
+	});
+		$("#otherdest").click(function(){
+			$(this).css({
+				borderStyle:"inset",
+				cursor:"wait"	
+			});
+			$("input").slideDown(1000,function(){
+				$(this)
+					.css("border", "2px blue inset")
+					.css("background", "white")
+					.focus();
+				$("#otherdest").css("visibility", "hidden");
+			});
 		});
+		
+
 	</script>
 </body>
 </html>

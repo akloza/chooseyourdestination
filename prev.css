@@ -19,3 +19,11 @@ h2{
 	padding:20px;
    
 }
+#destinationinfo{
+	color:red;
+}
+#otherdest{
+	position: relative;
+	top:10px;
+	color:white;
+}
